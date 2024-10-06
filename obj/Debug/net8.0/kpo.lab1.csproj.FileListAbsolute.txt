@@ -1,0 +1,14 @@
+C:\Users\normg\source\repos\kpo.lab1\bin\Debug\net8.0\kpo.lab1.exe
+C:\Users\normg\source\repos\kpo.lab1\bin\Debug\net8.0\kpo.lab1.deps.json
+C:\Users\normg\source\repos\kpo.lab1\bin\Debug\net8.0\kpo.lab1.runtimeconfig.json
+C:\Users\normg\source\repos\kpo.lab1\bin\Debug\net8.0\kpo.lab1.dll
+C:\Users\normg\source\repos\kpo.lab1\bin\Debug\net8.0\kpo.lab1.pdb
+C:\Users\normg\source\repos\kpo.lab1\obj\Debug\net8.0\kpo.lab1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\normg\source\repos\kpo.lab1\obj\Debug\net8.0\kpo.lab1.AssemblyInfoInputs.cache
+C:\Users\normg\source\repos\kpo.lab1\obj\Debug\net8.0\kpo.lab1.AssemblyInfo.cs
+C:\Users\normg\source\repos\kpo.lab1\obj\Debug\net8.0\kpo.lab1.csproj.CoreCompileInputs.cache
+C:\Users\normg\source\repos\kpo.lab1\obj\Debug\net8.0\kpo.lab1.dll
+C:\Users\normg\source\repos\kpo.lab1\obj\Debug\net8.0\refint\kpo.lab1.dll
+C:\Users\normg\source\repos\kpo.lab1\obj\Debug\net8.0\kpo.lab1.pdb
+C:\Users\normg\source\repos\kpo.lab1\obj\Debug\net8.0\kpo.lab1.genruntimeconfig.cache
+C:\Users\normg\source\repos\kpo.lab1\obj\Debug\net8.0\ref\kpo.lab1.dll
