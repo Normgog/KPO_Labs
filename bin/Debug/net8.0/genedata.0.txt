@@ -27,7 +27,7 @@ amino-acids difference:
 --------------------------------------------------------------------------
 007   mode	Cecropin
 amino-acid occurs:
-K		5
+A		5
 --------------------------------------------------------------------------
 008   mode	Alcohol dehydrogenase
 amino-acid occurs:

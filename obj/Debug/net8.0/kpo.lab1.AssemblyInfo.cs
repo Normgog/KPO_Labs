@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kpo.lab1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bffa7b36dd8c7dcf098e22df18c171c80af47fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("kpo.lab1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kpo.lab1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

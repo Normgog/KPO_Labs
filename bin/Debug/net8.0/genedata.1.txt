@@ -19,7 +19,7 @@ E		11
 --------------------------------------------------------------------------
 005   diff	Lsm3 protein	Drosophila melanogaster [Fragment]
 amino-acids difference:
-116
+156
 --------------------------------------------------------------------------
 006   search	TPRFGKTFDA
 organism		protein

@@ -3,27 +3,38 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
+
 public class Program
 {
     public static void Main()
     {
-        // Имя пользователя
+        var a = 6;
+        var b = 1;
+
+        Console.WriteLine($"a={a} b={b}");
+        
+        a += b;
+        b = -(b - a);
+        a = a - b;
+
+        Console.WriteLine($"a={a} b={b}");
+
         string userName = "Tsyns Andrei";
 
        
-        Console.WriteLine("Введите номер  файла  ");
+        Console.WriteLine("Введите номер  файла:  ");
         string fileChoice = Console.ReadLine();
 
         // Файлы в зависимости от выбора
-        string sequencesFile = "";
-        string commandsFile = "";
-        string outputFile = "";
+        string sequencesFile = $"sequences.{fileChoice}.txt";
+        string commandsFile = $"commands.{fileChoice}.txt";
+        string outputFile = $"genedata.{fileChoice}.txt";
 
-        if (fileChoice == "0")
+        /*if (fileChoice == "0")
         {
-            sequencesFile = "sequences.0.txt";
-            commandsFile = "commands.0.txt";
-            outputFile = "genedata.0.txt";
+            sequencesFile = ;
+            commandsFile = ;
+            outputFile = ;
         }
         else if (fileChoice == "1")
         {
@@ -36,7 +47,7 @@ public class Program
             sequencesFile = "sequences.2.txt";
             commandsFile = "commands.2.txt";
             outputFile = "genedata.2.txt";
-        }
+        }*/
         
         
         // Список с белками
@@ -135,6 +146,7 @@ public class Program
         string seq1 = "";
         string seq2 = "";
 
+        // Поиск последовательностей для обоих белков
         for (int i = 0; i < data.Count; i++)
         {
             var item = data[i];
@@ -144,33 +156,71 @@ public class Program
                 seq2 = item.formula;
         }
 
-
+        // Проверка на наличие последовательностей
         if (seq1 == "" || seq2 == "")
         {
             writer.WriteLine("amino-acids difference:");
             writer.WriteLine("NOT FOUND");
+            return;
         }
-        else
-        {
-            int diffCount = 0;
-            int minLength = Math.Min(seq1.Length, seq2.Length);
 
-            for (int i = 0; i < minLength; i++)
-            {
-                if (seq1[i] != seq2[i])
-                    diffCount++;
-            }
-            diffCount += Math.Abs(seq1.Length - seq2.Length);
-            writer.WriteLine("amino-acids difference:");
-            writer.WriteLine(diffCount);
+        
+        seq1 = Number_to_letter(seq1);
+        seq2 = Number_to_letter(seq2);
+        // Подсчет различий
+        int diffCount = 0;
+        int minLength = Math.Min(seq1.Length, seq2.Length);
+
+        // сравниваем символы до минимальной длины
+        for (int i = 0; i < minLength; i++)
+        {
+            if (seq1[i] != seq2[i])
+                diffCount++;
         }
+
+        diffCount += Math.Abs(seq1.Length - seq2.Length);
+       
+        writer.WriteLine("amino-acids difference:");
+        writer.WriteLine(diffCount);
     }
+
+    
+    public static string Number_to_letter(string sequence)
+    {
+        string expandedSequence = "";
+        int i = 0;
+
+        while (i < sequence.Length)
+        {
+            if (char.IsDigit(sequence[i]))
+            {
+                
+                int repeatCount = int.Parse(sequence[i].ToString());
+                i++; 
+                if (i < sequence.Length && char.IsLetter(sequence[i]))
+                {
+                   
+                    expandedSequence += new string(sequence[i], repeatCount);
+                }
+            }
+            else
+            {
+               
+                expandedSequence += sequence[i];
+            }
+            i++;
+        }
+
+        return expandedSequence;
+    }
+
 
     // метод для определения наиболее часто встречающейся аминокислоты
     public static void Mode(string protein, List<GeneticData> data, StreamWriter writer)
     {
         string sequence = "";
 
+        // Поиск нужного белка 
         for (int i = 0; i < data.Count; i++)
         {
             var item = data[i];
@@ -181,14 +231,15 @@ public class Program
             }
         }
 
-
         if (sequence == "")
         {
+            
             writer.WriteLine("amino-acid occurs:");
             writer.WriteLine("NOT FOUND");
         }
         else
         {
+            
             Dictionary<char, int> aminoCount = new Dictionary<char, int>();
 
             for (int i = 0; i < sequence.Length; i++)
@@ -200,18 +251,23 @@ public class Program
                     aminoCount[amino] = 1;
             }
 
+            // Находим аминокислоту с наибольшим количеством вхождений
+            var mostCommonAmino = aminoCount
+                .OrderByDescending(x => x.Value)    
+                .ThenBy(x => x.Key)                 
+                .First();                           
 
-            var mostCommonAmino = aminoCount.OrderByDescending(x => x.Value).First();
             writer.WriteLine("amino-acid occurs:");
             writer.WriteLine($"{mostCommonAmino.Key}\t\t{mostCommonAmino.Value}");
         }
     }
 
+
     // Структура для хранения данных о белке
     public struct GeneticData
     {
-        public string name;      // Название белка
-        public string organism;  // Организм
-        public string formula;   // Последовательность аминокислот
+        public string name;      
+        public string organism;  
+        public string formula;   
     }
 }
